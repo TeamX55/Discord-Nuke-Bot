@@ -26,8 +26,8 @@ async def stop(ctx):
         else:
                 return
 
-
-
+        
+        
 @client.command()
 async def channels(ctx):
 
@@ -47,11 +47,7 @@ async def channels(ctx):
         except:
                 print(Fore.RED + f"Role: {role} has NOT been created.")
 
-
-
-
-
-
+                
 
 @client.command()
 async def nuke(ctx):
