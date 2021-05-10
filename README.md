@@ -1,5 +1,5 @@
 # Discord-Nuke-Bot
-If you need a discord nuke bot this is the best one!
+If you need a discord nuke bot reed all the things in this readme.md file!
 
 # What do you need?
 * A account on https://replit.com (This is to run the bot)
