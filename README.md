@@ -21,11 +21,12 @@ If you need a discord nuke bot reed all the things in this readme.md file!
 9. Now click on 'copy' and paste that somewhere (This is your bot token. You can see this is a password)
 
 # How do i make a repl?
-1. Open a new tab
 1. Login with your replit account.
 2. Click on 'new repl'
 3. Select 'python' as a language
 4. Now give your repl a cool name
 5. Then click on 'create repl'
 6. Copy and paste the code that you can find in https://github.com/MrSnowmanGithub/Discord-Nuke-Bot/blob/main/main.py
-7. Now copy your bot token that you pasted somewhere
+7. Now copy your bot token that you pasted 
+<img width="1439" alt="Screenshot 2021-05-10 at 11 23 23" src="https://user-images.githubusercontent.com/81933028/117637579-38199e80-b182-11eb-83a9-3315af842c5f.png">
+8. Now click on 'run' and you can nuke servers!
